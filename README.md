@@ -1,4 +1,4 @@
-# modal-projects
+# Bubbles-Dashboard
 
 ## Project setup
 ```
