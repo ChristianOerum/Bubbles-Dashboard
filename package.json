@@ -10,6 +10,7 @@
   "dependencies": {
     "autoprefixer": "^10",
     "core-js": "^3.8.3",
+    "local-ip-address": "^1.0.0",
     "postcss": "^8",
     "tailwind": "^4.0.0",
     "tailwindcss": "^3",
