@@ -19,7 +19,7 @@
           <reusableCard state="above" KPI_value="100.000 DKK" KPI_name="Afholdt demo" KPI_percentage="23%"></reusableCard>
           <reusableCard state="above" KPI_value="100.000 DKK" KPI_name="K.G. mellem B.D. og A.D." KPI_percentage="23%"></reusableCard>
           <reusableCard state="above" KPI_value="100.000 DKK" KPI_name="K.G. mellem B.D. og Salg" KPI_percentage="23%"></reusableCard>
-          <wideCard state="above" KPI_value="100.000 DKK" KPI_name="K.G. mellem B.D. og Salg" KPI_percentage="23%"></wideCard>
+          <wideCard></wideCard>
 
         </div>
 
