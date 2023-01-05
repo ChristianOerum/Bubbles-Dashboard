@@ -7,7 +7,7 @@
 //import af tailwind CSS
 import './assets/tailwind.css'
 //import af dash_page komponent
-import Dashpage from "./components/Dash_page.vue";
+import Dashpage from "./page/Dash_page.vue";
 import { defineComponent } from 'vue';
 
 
@@ -17,7 +17,9 @@ export default defineComponent({
     Dashpage
   },
   data() {
-    return {}
+    return {
+      MRR: 1
+    }
   },
 
   methods: {}
