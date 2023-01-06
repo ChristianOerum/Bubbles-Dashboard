@@ -6,7 +6,7 @@
   <button class="bg-[#43474D] right-5 bottom-5 rounded-md w-14 h-14 absolute flex flex-col justify-center items-center" @click="playSong()">
     <svgCreater class="h-10 w-10" v-model:name=musicOnLable></svgCreater>
     <audio v-on:ended=songEnded() id="audio-player">
-        <source src="https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true" type="audio/mp3">
+        <source src="https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Just%20the%20two%20of%20us.mp3?raw=true" type="audio/mp3">
     </audio>
   </button>
 
