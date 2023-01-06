@@ -10,11 +10,16 @@
         <source src="https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Just%20the%20two%20of%20us.mp3?raw=true" type="audio/mp3">
     </audio>
 
-    <audio id="alarm-audio-player">
+    <audio v-on:ended=alarmEnded() id="alarm-audio-player">
         <source src="https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Alarm%20Siren%20Sound%20Fx.mp3?raw=true" type="audio/mp3">
     </audio>
 
   </button>
+
+  <div v-if="popupOpen" class="transition ease-in-out absolute w-full h-screen bg-[#612020]/[0.87] top-0 flex flex-col justify-center items-center">
+      <H1 class="text-[#EC2020] font-semibold text-9xl animate-pulse">ADVARSEL!</H1>
+      <P class="text-[#EC2020] font-semibold text-8xl animate-pulse">Salgs afdelingen brænder!</P>
+    </div>
 
 </template>
 
@@ -37,7 +42,8 @@ export default defineComponent({
       MRR: 1,
       musicOn: false,
       musicOnLable: "musicOff",
-      audioStarted: false
+      audioStarted: false,
+      popupOpen: false
     }
   },
 
@@ -60,6 +66,9 @@ export default defineComponent({
     songEnded(){
       let audio = document.getElementById("audio-player");
       audio.play()
+    },
+    alarmEnded(){
+      this.popupOpen = false
     }
   },
   mounted() {
@@ -70,6 +79,8 @@ export default defineComponent({
         let audio = document.getElementById("alarm-audio-player");
         audio.play()
         audio.volume = 0.6
+        this.popupOpen = true
+
       }
       else {
         //logger alle characterer som ikke er "s"
