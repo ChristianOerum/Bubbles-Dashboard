@@ -1,6 +1,6 @@
 <template>
 
-    <div class="bg-gradient-to-b from-[#36393E] to-[#434343] rounded-xl col-span-3 row-span-1 m-2 justify-center items-left grid grid-rows-1 pl-5 pr-5 grid-cols-5">
+    <div class="bg-gradient-to-b from-[#36393E] to-[#434343] rounded-2xl col-span-3 row-span-1 m-2 justify-center items-left grid grid-rows-1 pl-5 pr-5 grid-cols-5">
 
         <div class="rounded-xl col-span-1 row-span-1 flex flex-col justify-center items-center">
                 <p class="text-[#7A7D7E] text-2xl font-semibold">Antal skoler</p>
