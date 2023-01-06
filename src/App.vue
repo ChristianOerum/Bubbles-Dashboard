@@ -53,7 +53,7 @@ export default defineComponent({
 
       if (audio.paused){
         audio.play()
-        audio.volume = 0.1
+        audio.volume = 0.05
         this.musicOnLable = "musicOn"
         this.musicOn = true
       }
