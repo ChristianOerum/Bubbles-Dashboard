@@ -55,6 +55,18 @@ export default defineComponent({
       let audio = document.getElementById("audio-player");
       audio.play()
     }
+  },
+  mounted() {
+    window.addEventListener("keypress", function(e) {
+      if (String.fromCharCode(e.keyCode) == "k") {
+        console.log("ja tjark")
+      }
+      else {
+      console.log(String.fromCharCode(e.keyCode));
+    }
+
+    }.bind(this));
   }
+  
 });
 </script>
