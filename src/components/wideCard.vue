@@ -4,22 +4,22 @@
 
         <div class="rounded-xl col-span-1 row-span-1 flex flex-col justify-center items-center">
                 <p class="text-[#7A7D7E] text-2xl font-semibold">Antal skoler</p>
-                <h1 class="text-white text-5xl font-semibold">120</h1>
+                <h1 class="text-white text-5xl font-semibold">{{skoler}}</h1>
             </div>
 
         <div class="rounded-xl col-span-1 row-span-1 flex flex-col justify-center items-center">
             <p class="text-[#7A7D7E] text-2xl font-semibold">Antal Kommuner</p>
-            <h1 class="text-white text-5xl font-semibold">120</h1>
+            <h1 class="text-white text-5xl font-semibold">{{kommuner}}</h1>
         </div>
 
         <div class="rounded-xl col-span-1 row-span-1 flex flex-col justify-center items-center">
                 <p class="text-[#7A7D7E] text-2xl font-semibold">Antal brugere</p>
-                <h1 class="text-white text-5xl font-semibold">120</h1>
+                <h1 class="text-white text-5xl font-semibold">{{brugere}}</h1>
             </div>
 
         <div class="rounded-xl col-span-2 row-span-1 flex flex-col justify-center items-center relative">
             <p class="text-[#7A7D7E] text-2xl font-semibold">Markedsandele</p>
-            <h1 class="text-white text-5xl font-semibold">120</h1>
+            <h1 class="text-white text-5xl font-semibold">{{ialt}}</h1>
             <svgCreater class="h-full w-full absolute" name="DK"></svgCreater>
         </div>
 
@@ -34,6 +34,7 @@ import svgCreater from "@/components/svgCreater.vue";
 
 export default {
   name: 'App',
+  props: ["skoler","kommuner","brugere","ialt"],
   components: {
     svgCreater
   },
