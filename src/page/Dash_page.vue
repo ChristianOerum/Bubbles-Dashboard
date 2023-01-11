@@ -126,7 +126,7 @@ export default {
                   MRR += tempArr[i].fc934713f91688605b3c516dc29de0a897a865bf
               }  
 
-              //CLV + lukkede handler værdi
+              //CLV + lukkede handler værdi + salg denne måned
               if (tempArr[i].status == "won") {
                   CLV += tempArr[i].value
                   CLV_count += 1

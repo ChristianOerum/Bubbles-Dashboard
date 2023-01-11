@@ -6,7 +6,7 @@
   <button class="bg-[#43474D] right-5 bottom-5 rounded-md w-14 h-14 absolute flex flex-col justify-center items-center" @click="playSong()">
     <svgCreater class="h-10 w-10" v-model:name=musicOnLable></svgCreater>
 
-    <audio v-on:ended=songEnded() id="audio-player">
+    <audio v-on:ended=songEnded() id="audio-player" controls>
         <source src="https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Just%20the%20two%20of%20us.mp3?raw=true" type="audio/mp3">
     </audio>
 
@@ -64,7 +64,30 @@ export default defineComponent({
       }
     },
     songEnded(){
+
+      let audio_options = [
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder1"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder2"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder3"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder4"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder5"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder6"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder7"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder8"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder9"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder10"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder11"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder12"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder13"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder14"},
+        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Top%20gun%20anthem.mp3?raw=true", name:"placeholder15"}
+      ]
+
       let audio = document.getElementById("audio-player");
+      let selected_track = audio_options[Math.floor((Math.random()*audio_options.length))]
+
+      audio.src = selected_track.src
+      console.log("Now playing: " + selected_track.name)
       audio.play()
     },
     alarmEnded(){
