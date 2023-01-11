@@ -86,7 +86,6 @@ export default defineComponent({
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Just%20the%20Two%20of%20Us%20(feat.%20Bill%20Withers).mp3?raw=true", name:"Just the Two of Us", artist:"Bill Withers"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Justin%20Bieber%20-%20Peaches%20ft.%20Daniel%20Caesar,%20Giveon.mp3?raw=true", name:"Peaches", artist:"Justin Beiber, Daniel Caesar"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Kali%20Uchis%20%20telepat%C3%ADa%20%5BOfficial%20Audio%5D.mp3?raw=true", name:"Telepatía", artist:"Kali Uchis"},
-        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Kings%20Of%20Leon%20-%20Use%20Somebody%20(Official%20Video).mp3?raw=true", name:"Use Somebody", artist:"Kings Of Leon"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Lil%20Nas%20X%20-%20STAR%20WALKIN'%20(Lyrics).mp3?raw=true", name:"STAR WALKIN'", artist:"Lil Nas X"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Mariya%20Takeuchi%20-%20Plastic%20Love%20(Romaji%20Lyric%20Video).vhs.mp3?raw=true", name:"Plastic Love", artist:"Mariya Takeuchi"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Maroon%205%20ft.%20Megan%20Thee%20Stallion%20-%20Beautiful%20Mistakes%20(Lyrics).mp3?raw=true", name:"Beautiful Mistakes", artist:"Maroon 5, Megan Thee Stallion"},
@@ -100,7 +99,6 @@ export default defineComponent({
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Toto%20-%20Africa%20(Official%20HD%20Video).mp3?raw=true", name:"Africa", artist:"Toto"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Treasure%20-%20Bruno%20Mars%20(Lyrics).mp3?raw=true", name:"Treasure", artist:"Bruno Mars"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Wham!%20-%20Wake%20Me%20Up%20Before%20You%20Go-Go%20%5BLyrics%5D.mp3?raw=true", name:"Wake Me Up Before You Go-Go", artist:"Wham!"},
-        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/You.mp3?raw=true", name:"You", artist:"Regard, Troye Sivan"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/imugi%20%EC%9D%B4%EB%AC%B4%EA%B8%B0%20-%20Somebody%20Else%20(Official%20Video).mp3?raw=true", name:"Somebody Else", artist:"Imugi 이무기"}
       ]
 
