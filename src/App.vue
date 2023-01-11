@@ -57,7 +57,7 @@ export default defineComponent({
 
       if (audio.paused){
         audio.play()
-        audio.volume = 0.01
+        audio.volume = 0.05
         this.musicOnLable = "musicOn"
         this.musicOn = true
       }
@@ -111,7 +111,7 @@ export default defineComponent({
       this.current_song_artist = selected_track.artist
 
       audio.play()
-      audio.volume = 0.01
+      audio.volume = 0.05
     },
     alarmEnded(){
       this.popupOpen = false
