@@ -8,7 +8,7 @@
     <p class="text-white text-opacity-40 absolute w-max right-16 bottom-1 text-right">{{ current_song_artist }}</p>
     <svgCreater class="h-10 w-10" v-model:name=musicOnLable></svgCreater>
 
-    <audio v-on:ended=songEnded() id="audio-player" controls>
+    <audio v-on:ended=songEnded() id="audio-player">
         <source src="https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Just%20the%20Two%20of%20Us%20(feat.%20Bill%20Withers).mp3?raw=true" type="audio/mp3">
     </audio>
 
@@ -112,8 +112,8 @@ export default defineComponent({
       this.current_song_name = selected_track.name
       this.current_song_artist = selected_track.artist
 
-      audio.volume = 0.03
       audio.play()
+      audio.volume = 0.03
     },
     alarmEnded(){
       this.popupOpen = false
