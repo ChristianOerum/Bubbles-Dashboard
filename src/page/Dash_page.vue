@@ -9,14 +9,14 @@
           <reusableCard state="above" :KPI_value=lukkede_Handler_Værdi KPI_name="Lukkede handler værdi" :KPI_percentage=lukkede_Handler_VærdiP></reusableCard>
           <reusableCard state="above" :KPI_value=cac KPI_name="CAC" :KPI_percentage=cacP></reusableCard>
           <reusableCard state="above" :KPI_value=cacPayback KPI_name="CAC Payback" :KPI_percentage=cacPaybackP></reusableCard>
-          <reusableCard state="above" :KPI_value=cac_clv KPI_name="CAC/CLV" :KPI_percentage=cac_clvP></reusableCard>
+          <reusableCard state="above" :KPI_value=cac_clv KPI_name="CLV/CAC" :KPI_percentage=cac_clvP></reusableCard>
           <reusableCard state="above" :KPI_value=antal_salg_Måned KPI_name="Antal salg/måned" :KPI_percentage=antal_salg_MånedP></reusableCard>
           <reusableCard state="above" :KPI_value=antal_salg_Mål KPI_name="Skoler lukket udfra mål" :KPI_percentage=antal_salg_MålP></reusableCard>
           <reusableCard state="above" :KPI_value=chrun_Rate KPI_name="Churn Rate" :KPI_percentage=chrun_RateP></reusableCard>
           <reusableCard state="above" :KPI_value=revenue_Chrun_Rate_ARR KPI_name="Revenue Churn Rate (ARR%)" :KPI_percentage=revenue_Chrun_Rate_ARRP></reusableCard>
           <reusableCard state="above" :KPI_value=revenue_Chrun_Rate_UP KPI_name="Revenue Churn Rate (Churn + UP)" :KPI_percentage=revenue_Chrun_Rate_UPP></reusableCard>
           <reusableCard state="above" :KPI_value=booket_demo KPI_name="Booket demo" :KPI_percentage=booket_demoP></reusableCard>
-          <reusableCard state="above" :KPI_value=afholdt_demo KPI_name="Afholdt demo" :KPI_percentage=afholdt_demoP></reusableCard>
+          <reusableCard state="above" :KPI_value=afholdt_demo KPI_name="Besøgte skoler" :KPI_percentage=afholdt_demoP></reusableCard>
           <reusableCard state="above" :KPI_value=konvetering_1 KPI_name="K.G. mellem B.D. og A.D." :KPI_percentage=konvetering_1P></reusableCard>
           <reusableCard state="above" :KPI_value=konvetering_2 KPI_name="K.G. mellem B.D. og Salg" :KPI_percentage=konvetering_2P></reusableCard>
           <wideCard :skoler=antal_skoler blank1="b1" :kommuner=antal_kommuner blank2="b2" :brugere=antal_brugerer blank3="b3" :ialt=markedsandel></wideCard>
@@ -106,6 +106,7 @@ export default {
       let markdsStørrelse = 0
       let bookedDemo = 0
       let afholdtDemo = 0
+      let samlet_antal_salg = 0
 
 
       while (tempArr.length == start) {
@@ -132,6 +133,8 @@ export default {
                   CLV_count += 1
 
                   LHV += tempArr[i].value
+
+                  samlet_antal_salg += 1
 
                   if(tempArr[i].close_time == (new Date()).getMonth() + 1) {
                       salg_DM += 1 
@@ -179,8 +182,8 @@ export default {
           this.cac = google_sheetData[0].toLocaleString() + " DKK"
           console.log("CAC= " + google_sheetData[0])
 
-          this.cacPayback = google_sheetData[1] + "u"
-          console.log("CACPayback= " + google_sheetData[1])
+          this.cacPayback = (google_sheetData[0]/(MRR/samlet_antal_salg)).toFixed(1) + " Mdr."
+          console.log("CACPayback= " + (google_sheetData[0]/(MRR/samlet_antal_salg)).toFixed(1) + " Mdr.")
 
           this.cac_clv = "x" + ((CLV/CLV_count)/Number(google_sheetData[0])).toFixed(2)
           console.log("CAC/CLV= " + ((CLV/CLV_count)/Number(google_sheetData[0])))
@@ -221,8 +224,8 @@ export default {
           this.antal_brugerer = antalBrugere
           console.log("Antal brugere= " + antalBrugere)
 
-          this.markedsandel = ((antalSkoler/markdsStørrelse)*100).toFixed(3) + "%"
-          console.log("Markedsandele= " + ((antalSkoler/markdsStørrelse)*100).toFixed(3) + "%")
+          this.markedsandel = ((antalSkoler/markdsStørrelse)*100).toFixed(2) + "%"
+          console.log("Markedsandele= " + ((antalSkoler/markdsStørrelse)*100).toFixed(2) + "%")
 
 
           console.log("_______________")
