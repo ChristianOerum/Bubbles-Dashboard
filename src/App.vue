@@ -47,7 +47,8 @@ export default defineComponent({
       audioStarted: false,
       popupOpen: false,
       current_song_name: "Just the Two of Us",
-      current_song_artist: "Bill Withers"
+      current_song_artist: "Bill Withers",
+      current_song_index: 0
     }
   },
 
@@ -70,6 +71,7 @@ export default defineComponent({
     songEnded(){
 
       let audio_options = [
+      {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Just%20the%20Two%20of%20Us%20(feat.%20Bill%20Withers).mp3?raw=true", name:"Just the Two of Us", artist:"Bill Withers"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/4_00%20A.M..mp3?raw=true", name:"4:00A.M.", artist:"Taeko Ohnuki"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Aloe%20Blacc-%20The%20Man.mp3?raw=true", name:"The Man", artist:"Aloe Blacc"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/BENEE%20-%20Evil%20Spider%20(Lyric%20Video).mp3?raw=true", name:"Evil Spider", artist:"BENEE "},
@@ -83,7 +85,6 @@ export default defineComponent({
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/JAY-Z%20-%20Empire%20State%20Of%20Mind%20(Lyrics)%20ft.%20Alicia%20Keys.mp3?raw=true", name:"Empire state of mind", artist:"JAY-Z, Alicia Keys"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/John%20Mayer%20-%20New%20Light%20(Official%20Audio).mp3?raw=true", name:"New Light", artist:"John Mayer"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Journey%20-%20Don't%20Stop%20Believin'%20(Official%20Audio).mp3?raw=true", name:"Dont Stop Believin'", artist:"Journey"},
-        {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Just%20the%20Two%20of%20Us%20(feat.%20Bill%20Withers).mp3?raw=true", name:"Just the Two of Us", artist:"Bill Withers"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Justin%20Bieber%20-%20Peaches%20ft.%20Daniel%20Caesar,%20Giveon.mp3?raw=true", name:"Peaches", artist:"Justin Beiber, Daniel Caesar"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Kali%20Uchis%20%20telepat%C3%ADa%20%5BOfficial%20Audio%5D.mp3?raw=true", name:"Telepatía", artist:"Kali Uchis"},
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/Lil%20Nas%20X%20-%20STAR%20WALKIN'%20(Lyrics).mp3?raw=true", name:"STAR WALKIN'", artist:"Lil Nas X"},
@@ -102,8 +103,15 @@ export default defineComponent({
         {src: "https://github.com/ChristianOerum/Bubbles-Dashboard/blob/main/music/imugi%20%EC%9D%B4%EB%AC%B4%EA%B8%B0%20-%20Somebody%20Else%20(Official%20Video).mp3?raw=true", name:"Somebody Else", artist:"Imugi 이무기"}
       ]
 
+      if (this.current_song_index-1 != audio_options.length ) {
+        this.current_song_index += 1
+      }
+      else {
+        this.current_song_index = 0
+      }
+
       let audio = document.getElementById("audio-player");
-      let selected_track = audio_options[Math.floor((Math.random()*audio_options.length))]
+      let selected_track = audio_options[this.current_song_index]
 
       audio.src = selected_track.src
       console.log("Now playing: " + selected_track.name)
