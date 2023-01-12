@@ -1,7 +1,17 @@
 <template>
 
-  <Dashpage>
+  <Dashpage v-if="dash_index == 0">
   </Dashpage>
+
+  <Dashpage2 v-else-if="dash_index == 1">
+  </Dashpage2>
+
+
+  
+  <div class="bg-[#43474D] left-5 bottom-5 rounded-md w-max h-14 absolute flex flex-row justify-center items-center">
+    <button class="text-white flex text-opacity-40 w-max pl-4 pr-4" @click="switchDash('last')">Forrige side</button>
+    <button class="text-white flex text-opacity-40 w-max pl-4 pr-4" @click="switchDash('next')">Næste side</button>
+  </div>
 
   <button class="bg-[#43474D] right-5 bottom-5 rounded-md w-14 h-14 absolute flex flex-col justify-center items-center" @click="playSong()">
     <p class="text-white text-opacity-40 absolute w-max right-16 top-1 text-right">{{ current_song_name }}</p>
@@ -30,6 +40,7 @@
 import './assets/tailwind.css'
 //import af dash_page komponent
 import Dashpage from "./page/Dash_page.vue";
+import Dashpage2 from "./page/Dash_page2.vue";
 import { defineComponent } from 'vue';
 import svgCreater from "@/components/svgCreater.vue"; 
 
@@ -37,7 +48,8 @@ export default defineComponent({
   name: 'App',
   components: {
     Dashpage,
-    svgCreater
+    svgCreater,
+    Dashpage2
   },
   data() {
     return {
@@ -48,7 +60,8 @@ export default defineComponent({
       popupOpen: false,
       current_song_name: "Just the Two of Us",
       current_song_artist: "Bill Withers",
-      current_song_index: 0
+      current_song_index: 0,
+      dash_index: 0
     }
   },
 
@@ -67,6 +80,26 @@ export default defineComponent({
         this.musicOnLable = "musicOff"
         this.musicOn = false
       }
+    },
+    switchDash(button_type){
+      if (button_type == 'next') {
+         if (this.dash_index == 1) {
+          this.dash_index = 0
+         }
+         else {
+          this.dash_index +=1
+         }
+
+      } else if (button_type == 'last') {
+        if (this.dash_index == 0) {
+          this.dash_index = 1
+         }
+         else {
+          this.dash_index -=1
+         }
+      }
+
+
     },
     songEnded(){
 
@@ -142,7 +175,7 @@ export default defineComponent({
     }
 
     }.bind(this));
-  }
+  },
   
 });
 </script>
