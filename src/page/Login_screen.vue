@@ -35,7 +35,7 @@ export default {
         },
         ShowPasswordToggle(){
 
-            console.log(this.show)
+            console.log(process.env.VUE_APP_ACCESS_PIN)
 
             if (this.show == false) {
                 this.show = true

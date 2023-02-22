@@ -145,7 +145,6 @@ export default {
               if (tempArr[i].status == "won" && tempArr[i]["41bf727b06a597ee86020f7b240b88cc02ec9a74"] == "24" && tempArr[i].first_won_time ==  (new Date()).getMonth() + 1) {
                   Opsalg_MRR += tempArr[i].fc934713f91688605b3c516dc29de0a897a865bf
               }
-
           } 
 
           //google sheet data.
@@ -164,57 +163,93 @@ export default {
                   afholdtDemo = google_sheetData[8]
           })
 
+          //MRR box
           this.mrr = MRR.toLocaleString() + " DKK"
+          this.mrrP = (((MRR/  9000  )*100)-100).toFixed(1)
           console.log("MRR= " + MRR)
 
+          //ARR box
           this.arr = (MRR*12).toLocaleString() + " DKK"
+          this.arrP = ((((MRR*12)/  140000  )*100)-100).toFixed(1)
           console.log("ARR= " + (MRR*12))
           
+          //CLV box
           this.clv = (CLV/CLV_count).toLocaleString() + " DKK"
+          this.clvP = ((((CLV/CLV_count)/  43000  )*100)-100).toFixed(1)
           console.log("CLV= " + (CLV/CLV_count))
 
+          //Opslag MMR
           this.opsalg_CLV = Opsalg_MRR.toLocaleString() + " DKK"
+          this.opsalg_CLVP = ((((Opsalg_MRR)/  19500  )*100)-100).toFixed(1)
           console.log("Opsalg_MRR= " + Opsalg_MRR)
 
+          //lukkede handler værdi box
           this.lukkede_Handler_Værdi = LHV.toLocaleString() + " DKK"
+          this.lukkede_Handler_VærdiP = ((((LHV)/  100000  )*100)-100).toFixed(1)
           console.log("Lukkede handler værdi= " + LHV)
 
+          //CAC box (modsat da det er negativt hvis tallet stiger fra måned til måned)
           this.cac = google_sheetData[0].toLocaleString() + " DKK"
+          this.cacP = (((((google_sheetData[0])/  2000  )*100)-100)*-1).toFixed(1)
           console.log("CAC= " + google_sheetData[0])
 
+          //CAC Payback box (modsat da det er negativt hvis tallet stiger fra måned til måned)
           this.cacPayback = (google_sheetData[0]/(MRR/samlet_antal_salg)).toFixed(1) + " Mdr."
+          this.cacPaybackP = ((((((google_sheetData[0]/(MRR/samlet_antal_salg)))/  1.1  )*100)-100)*-1).toFixed(1)
           console.log("CACPayback= " + (google_sheetData[0]/(MRR/samlet_antal_salg)).toFixed(1) + " Mdr.")
 
+          //CAC over CLV box
           this.cac_clv = "x" + ((CLV/CLV_count)/Number(google_sheetData[0])).toFixed(2)
+          this.cac_clvP = ((((((CLV/CLV_count)/Number(google_sheetData[0])))/  7  )*100)-100).toFixed(1)
           console.log("CAC/CLV= " + ((CLV/CLV_count)/Number(google_sheetData[0])))
 
+          //Antal salg box
           this.antal_salg_Måned = salg_DM
+          this.antal_salg_MånedP = ((((salg_DM)/  3  )*100)-100).toFixed(1)
           console.log("Antal salg/måned= " + salg_DM)
 
+          //Antal salg ud fra mål box
           this.antal_salg_Mål = ((salg_DM/google_sheetData[2])*100).toFixed(1) + "%"
+          this.antal_salg_MålP = ((((((salg_DM/google_sheetData[2])*100))/  40  )*100)-100).toFixed(1)
           console.log("Antal salg/mål= " + ((salg_DM/google_sheetData[2])*100).toFixed(1) + "%" )
 
+          //Churn rate box
           this.chrun_Rate = 0
+          this.chrun_RateP = 0
           console.log("Churn rate?")
 
+          //Churn rate AAR box
           this.revenue_Chrun_Rate_ARR = 0
+          this.revenue_Chrun_Rate_ARRP = 0
           console.log("Revenue Churn Rate (ARR%)?")
 
+          //Churn rate up box
           this.revenue_Chrun_Rate_UP = 0
+          this.revenue_Chrun_Rate_UPP = 0
           console.log("Revenue Churn Rate (Churn + UP)?")
-
+          
+          //Booket demo box
           this.booket_demo = bookedDemo
+          this.booket_demoP = ((((bookedDemo)/  2  )*100)-100).toFixed(1)
           console.log("Booket demo= " + bookedDemo)
 
+          //Afholdt demo box
           this.afholdt_demo = afholdtDemo
+          this.afholdt_demoP = ((((afholdtDemo)/  2  )*100)-100).toFixed(1)
           console.log("Afholdt demo= " + afholdtDemo)
 
+          //Konveteringsgrad mellem booket demo og afholdt box
           this.konvetering_1 = ((afholdtDemo/bookedDemo)*100).toFixed(1) + "%"
+          this.konvetering_1P = ((((((afholdtDemo/bookedDemo)*100))/  50  )*100)-100).toFixed(1)
           console.log("K.G. mellem B.D. og A.D= " + ((afholdtDemo/bookedDemo)*100).toFixed(1) + "%")
 
+          //Konveterings grad mellem booket dem og salg box
           this.konvetering_2 = ((salg_DM/bookedDemo)*100).toFixed(1) + "%"
+          this.konvetering_2P = ((((((salg_DM/bookedDemo)*100))/  3  )*100)-100).toFixed(1)
           console.log("K.G. mellem B.D. og Salg= " + ((salg_DM/bookedDemo)*100).toFixed(1) + "%")
 
+
+          //bred box
           this.antal_skoler = antalSkoler
           console.log("Antal skoler= " + antalSkoler)
 

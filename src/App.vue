@@ -1,6 +1,5 @@
 <template>
-
-<LoginScreen v-if="password !== 'Detboblerhosbirkcenterpark'" v-model:modelValue="password">
+<LoginScreen v-if="password !== VUE_APP_ACCESS_PIN" v-model:modelValue="password">
 </LoginScreen>
 
 <div v-else>
@@ -69,7 +68,8 @@ export default defineComponent({
       current_song_artist: "Bill Withers",
       current_song_index: 0,
       dash_index: 0,
-      password: localStorage.getItem('Password')
+      password: localStorage.getItem('Password'),
+      VUE_APP_ACCESS_PIN: process.env.VUE_APP_ACCESS_PIN
     }
   },
 

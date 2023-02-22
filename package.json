@@ -15,6 +15,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "autoprefixer": "^10",
     "core-js": "^3.8.3",
+    "dotenv-webpack": "^8.0.1",
     "local-ip-address": "^1.0.0",
     "postcss": "^8",
     "tailwind": "^4.0.0",
