@@ -1,5 +1,9 @@
 <template>
 
+<LoginScreen v-if="password !== 'Detboblerhosbirkcenterpark'" v-model:modelValue="password">
+</LoginScreen>
+
+<div v-else>
   <Dashpage v-if="dash_index == 0">
   </Dashpage>
 
@@ -7,8 +11,8 @@
   </Dashpage2>
 
 
-  
   <div class="bg-[#43474D] left-5 bottom-5 rounded-md w-max h-14 absolute flex flex-row justify-center items-center">
+    <button class="text-white flex text-opacity-40 w-max pl-4 pr-4" @click="clearLocalStorage()">Log ud</button>
     <button class="text-white flex text-opacity-40 w-max pl-4 pr-4" @click="switchDash('last')">Forrige side</button>
     <button class="text-white flex text-opacity-40 w-max pl-4 pr-4" @click="switchDash('next')">Næste side</button>
   </div>
@@ -32,6 +36,7 @@
       <H1 class="text-[#EC2020] font-semibold text-9xl animate-pulse">ADVARSEL!</H1>
       <P class="text-[#EC2020] font-semibold text-8xl animate-pulse">Salgs afdelingen brænder!</P>
     </div>
+  </div>
 
 </template>
 
@@ -41,6 +46,7 @@ import './assets/tailwind.css'
 //import af dash_page komponent
 import Dashpage from "./page/Dash_page.vue";
 import Dashpage2 from "./page/Dash_page2.vue";
+import LoginScreen from "./page/Login_screen.vue";
 import { defineComponent } from 'vue';
 import svgCreater from "@/components/svgCreater.vue"; 
 
@@ -49,7 +55,8 @@ export default defineComponent({
   components: {
     Dashpage,
     svgCreater,
-    Dashpage2
+    Dashpage2,
+    LoginScreen
   },
   data() {
     return {
@@ -61,7 +68,8 @@ export default defineComponent({
       current_song_name: "Just the Two of Us",
       current_song_artist: "Bill Withers",
       current_song_index: 0,
-      dash_index: 0
+      dash_index: 0,
+      password: localStorage.getItem('Password')
     }
   },
 
@@ -101,6 +109,12 @@ export default defineComponent({
 
 
     },
+
+    clearLocalStorage(){
+      localStorage.clear();
+      location.reload();
+    },
+
     songEnded(){
 
       let audio_options = [
