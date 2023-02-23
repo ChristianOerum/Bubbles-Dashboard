@@ -22,6 +22,9 @@
     <button v-if="musicOn" class="row-end-1 col-start-7 absolute right-5 top-2 text-white" @click="playSong()"><fa icon="pause"/></button>
     <button v-else class="row-end-1 col-start-7 absolute right-5 top-2 text-white" @click="playSong()"><fa icon="play"/></button>
 
+    <button class="row-end-1 col-start-7 absolute right-[40px] top-2 text-white/[0.5]" @click="songEnded()"><fa icon="forward"/></button>
+    <button class="row-end-1 col-start-7 absolute right-[65px] top-2 text-white/[0.5]" @click="songEnded()"><fa icon="backward"/></button>
+
     <h1 class="text-white/[0.4] text-sm row-start-2 col-start-1 col-end-3">{{ timeConvert(current_song_nowduration) }} / {{  timeConvert(current_song_duration) }}</h1>
     <div class="h-[10px] w-[245px] bg-white/[0.4] rounded-full row-start-2 col-start-3 col-end-7" @click="playhead($event)">
       <div :style="{ width: ((245/current_song_duration)*current_song_nowduration) + 'px' }" class="h-[10px] bg-[#0097ff] right-0 rounded-full">
@@ -203,6 +206,7 @@ export default defineComponent({
       
       setTimeout(() => {
         audio.play()
+        audio.volume = 0.05
         this.current_song_name = selected_track.name + ", "
         this.current_song_artist = selected_track.artist
       }, 3000);
