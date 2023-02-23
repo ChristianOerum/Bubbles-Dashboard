@@ -19,7 +19,7 @@
 
     <div class="rounded-xl col-span-2 row-span-1 flex flex-col justify-center items-center relative">
         <p class="text-[#7A7D7E] text-2xl font-semibold">Markedsandele</p>
-        <h1 class="text-white text-5xl font-semibold"><fa icon="calculator" class="animate-pulse"/></h1>
+        <h1 class="text-white/[0.2] text-5xl font-semibold"><fa icon="calculator" class="animate-pulse"/></h1>
         <svgCreater class="h-full w-full absolute" name="DK"></svgCreater>
     </div>  
 
