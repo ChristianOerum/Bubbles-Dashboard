@@ -186,7 +186,7 @@ export default defineComponent({
       this.current_song_artist = ""
       this.current_song_name = ""
 
-      if (this.current_song_index-1 != this.audio_options.length ) {
+      if (this.current_song_index+1 != this.audio_options.length ) {
         this.current_song_index += 1
       }
       else {
