@@ -41,6 +41,8 @@
     </div>
   </div>
 
+  <h1 class="absolute bottom-3 font-medium text-white/[0.1] left-1/2 transform -translate-x-1/2">Copyright © 2023 Bubbles ApS</h1>
+
 
   <div v-if="popupOpen" class="transition ease-in-out absolute w-full h-screen bg-[#612020]/[0.87] top-0 flex flex-col justify-center items-center">
       <H1 class="text-[#EC2020] font-semibold text-9xl animate-pulse">ADVARSEL!</H1>

@@ -10,7 +10,9 @@
 
         </div>
 
+        <h1 class="absolute bottom-3 font-medium text-white/[0.1] left-1/2 transform -translate-x-1/2">Copyright © 2023 Bubbles ApS</h1>
 
+        
         <p class="w-[400px] text-center p-5 text-sm font-poppins font-medium text-white/[0.15]">Spørg Christian i tilfælde af at du ikke kender eller kan huske den prædefinerede access pinkode.</p>
 
     </div>
