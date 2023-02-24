@@ -17,13 +17,13 @@
   </div>
 
   <div class="h-14 w-[365px] bg-[#43474D] absolute right-5 bottom-5 rounded-md flex flex-col justify-center items-center grid grid-cols-7 grid-rows-2 p-2">
-    <h1 class="text-white/[0.4] row-start-1 col-span-6">{{ current_song_name + " " + current_song_artist }}</h1>
+    <h1 class="text-white/[0.4] row-start-1 col-span-6 w-[270px] truncate">{{ current_song_name + " " + current_song_artist }}</h1>
 
     <button v-if="musicOn" class="row-end-1 col-start-7 absolute right-5 top-2 text-white" @click="playSong()"><fa icon="pause"/></button>
     <button v-else class="row-end-1 col-start-7 absolute right-5 top-2 text-white" @click="playSong()"><fa icon="play"/></button>
 
     <button class="row-end-1 col-start-7 absolute right-[40px] top-2 text-white/[0.5]" @click="songEnded()"><fa icon="forward"/></button>
-    <button class="row-end-1 col-start-7 absolute right-[65px] top-2 text-white/[0.5]" @click="songEnded()"><fa icon="backward"/></button>
+    <button class="row-end-1 col-start-7 absolute right-[65px] top-2 text-white/[0.5]" @click="backward()"><fa icon="backward"/></button>
 
     <h1 class="text-white/[0.4] text-sm row-start-2 col-start-1 col-end-3">{{ timeConvert(current_song_nowduration) }} / {{  timeConvert(current_song_duration) }}</h1>
     <div class="h-[10px] w-[245px] bg-white/[0.4] rounded-full row-start-2 col-start-3 col-end-7" @click="playhead($event)">
@@ -184,6 +184,35 @@ export default defineComponent({
 
       let test_audio = document.getElementById("audio-test");
       test_audio.currentTime = slected_duration
+    },
+
+    backward(){
+      this.current_song_artist = ""
+      this.current_song_name = ""
+
+      console.log(this.current_song_index)
+      
+      if (this.current_song_index != 0 ) {
+        this.current_song_index -= 1
+      }
+      else {
+        this.current_song_index = this.audio_options.length -1
+      }
+      let selected_track = this.audio_options[this.current_song_index]
+
+      let audio = document.getElementById('audio-test')
+
+      audio.pause();
+      audio.currentTime = 0
+
+      audio.src = selected_track.src 
+      
+      setTimeout(() => {
+        audio.play()
+        audio.volume = 0.05
+        this.current_song_name = selected_track.name + ", "
+        this.current_song_artist = selected_track.artist
+      }, 3000);
     },
 
     songEnded(){
