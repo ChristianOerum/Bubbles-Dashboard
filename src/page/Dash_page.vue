@@ -88,7 +88,7 @@ export default {
       setInterval(async () => {
 
       const companyUrl = "bubblesaps"
-      const token = "b8e12906a11c6c9ba7eeae923e5f23a54adab5d1";
+      const token = process.env.VUE_APP_PIPEDRIVE_TOKEN;
       const limit = "500"
 
       let start = 0
